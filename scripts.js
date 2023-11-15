@@ -69,7 +69,18 @@ const SelfServiceMachine = {
         return {
             products: window.products,
         }
-    }
+    },
+    methods: {
+        total: function(){
+            var total = 0;
+            this.products.forEach(function(product){
+                if(product.active){
+                    total += product.price * product.quantity;
+                }
+            });
+            return total.toFixed(2);
+        }
+    },
 }; 
 
 Vue.createApp(SelfServiceMachine).mount('#app');

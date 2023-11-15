@@ -16,22 +16,23 @@
     <main id="app">
         <section class="items">
             <h4>Selecione os produtos</h4>
-            <div v-for="product in products">
-                <div class="product">
-                    <div class="photo">
-                        <img :src="product.photo">
-                    </div>
-                    <div class="description">
-                        <span class="name">{{product.name}}</span>
-                        <span class="price">$ {{product.price}}</span>
-                        <div class="quantity-area">
-                            <button>-</button>
-                            <span class="quantity">{{product.price}}</span>
-                            <button>+</button>
-                        </div>
+
+            <div v-on:click="product.active = !product.active" v-for="product in products"
+                :class="{selected : product.active}" class=" product">
+                <div class="photo">
+                    <img :src="product.photo">
+                </div>
+                <div class="description">
+                    <span class="name">{{product.name}}</span>
+                    <span class="price">$ {{product.price}}</span>
+                    <div class="quantity-area">
+                        <button>-</button>
+                        <span class="quantity">{{product.price}}</span>
+                        <button>+</button>
                     </div>
                 </div>
             </div>
+
 
         </section>
 
